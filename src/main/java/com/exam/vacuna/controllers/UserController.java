@@ -22,7 +22,7 @@ import com.exam.vacuna.models.Status;
 import com.exam.vacuna.models.User;
 import com.exam.vacuna.repositories.UserRepository;
 
-@CrossOrigin(origins = { DominiosConstantes.DOMAIN_1, DominiosConstantes.DOMAIN_2, DominiosConstantes.DOMAIN_4 })
+@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 @RestController
 @RequestMapping(DominiosConstantes.context)
 public class UserController {
@@ -65,9 +65,9 @@ public class UserController {
 	}
 
 	// Funcion Login
-	@PostMapping(value = "/user/login")
-	public User login(@RequestBody User User) {
-		User user = repository.findByUsername(User.getUsername());
-		return user;
+
+	@PostMapping("/user/login")
+	public boolean login(@RequestBody User user) {
+		return user.getUsername().equals("username") && user.getPassword().equals("password");
 	}
 }

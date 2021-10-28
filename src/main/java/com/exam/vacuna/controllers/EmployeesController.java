@@ -21,7 +21,7 @@ import com.exam.vacuna.constants.DominiosConstantes;
 import com.exam.vacuna.models.Employees;
 import com.exam.vacuna.repositories.EmployeesRepository;
 
-@CrossOrigin(origins = { DominiosConstantes.DOMAIN_1, DominiosConstantes.DOMAIN_2, DominiosConstantes.DOMAIN_4 })
+@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 @RestController
 @RequestMapping(DominiosConstantes.context)
 public class EmployeesController {
