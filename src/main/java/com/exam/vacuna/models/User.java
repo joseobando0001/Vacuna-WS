@@ -13,7 +13,7 @@ public class User {
 	@Id
 	@Column(name = "id_user", columnDefinition = "serial")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_user;
+	private Integer id_user;
 
 	@Column(name = "username")
 	private String username;
@@ -26,12 +26,16 @@ public class User {
 
 	@Column(name = "cedula")
 	private Integer cedula;
+	
+	public void setId_user(int i) {
+		this.id_user = i;
+	}
 
-	public Long getId_user() {
+	public Integer getId_user() {
 		return id_user;
 	}
 
-	public void setId_empleado(Long id_user) {
+	public void setId_empleado(Integer id_user) {
 		this.id_user = id_user;
 	}
 

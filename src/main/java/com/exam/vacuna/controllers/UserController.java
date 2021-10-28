@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.exam.vacuna.constants.DominiosConstantes;
+import com.exam.vacuna.models.Status;
 import com.exam.vacuna.models.User;
 import com.exam.vacuna.repositories.UserRepository;
 
@@ -26,7 +27,6 @@ import com.exam.vacuna.repositories.UserRepository;
 @RequestMapping(DominiosConstantes.context)
 public class UserController {
 	public static final Logger logger = LoggerFactory.getLogger(UserController.class);
-
 	@Autowired
 	UserRepository repository;
 	// Muestra todas las preguntas
@@ -62,5 +62,12 @@ public class UserController {
 		logger.info("Delete user with id {}", id);
 		repository.deleteById(id);
 		return new ResponseEntity(true, HttpStatus.OK);
+	}
+
+	// Funcion Login
+	@PostMapping(value = "/user/login")
+	public User login(@RequestBody User User) {
+		User user = repository.findByUsername(User.getUsername());
+		return user;
 	}
 }
