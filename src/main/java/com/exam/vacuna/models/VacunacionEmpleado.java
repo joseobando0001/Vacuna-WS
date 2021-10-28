@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class VacunacionEmpleado {
 
 	@Id
-	@Column(name = "id_vacunacionempleado",columnDefinition = "serial")
+	@Column(name = "id_vacunacionempleado", columnDefinition = "serial")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_vacunacionempleado;
 
@@ -26,6 +26,17 @@ public class VacunacionEmpleado {
 
 	@Column(name = "numero_dosis")
 	private String numero_dosis;
+
+	@Column(name = "cedula")
+	private Integer cedula;
+
+	public Integer getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(Integer cedula) {
+		this.cedula = cedula;
+	}
 
 	public Long getId_vacunacionempleado() {
 		return id_vacunacionempleado;
