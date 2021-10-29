@@ -47,6 +47,13 @@ public class EmployeesController {
 		List<Employees> employees = repository.findById(id);
 		return employees;
 	}
+	
+	@GetMapping(value = "empleadocedula/{id}")
+	public List<Employees> findByCedula(@PathVariable int id) {
+
+		List<Employees> employees = repository.findByCedula(id);
+		return employees;
+	}
 
 	// Crea un nuevo Empleado
 	@PostMapping(value = "/empleado")

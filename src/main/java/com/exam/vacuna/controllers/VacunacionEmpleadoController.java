@@ -47,6 +47,14 @@ public class VacunacionEmpleadoController {
 		List<VacunacionEmpleado> vacunacion = repository.findById(id);
 		return vacunacion;
 	}
+	
+	@GetMapping(value = "vaccedula/{id}")
+	public List<VacunacionEmpleado> findByCedula(@PathVariable int id) {
+
+		List<VacunacionEmpleado> vacunacion = repository.findByCedula(id);
+		return vacunacion;
+	}
+
 
 	// Crea una nueva Vacuna
 	@PostMapping(value = "/vacunacion")
