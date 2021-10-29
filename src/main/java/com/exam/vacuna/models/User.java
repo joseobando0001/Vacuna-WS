@@ -8,12 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user",schema = "public")
+@Table(name = "user", schema = "public")
 public class User {
 	@Id
 	@Column(name = "id_user", columnDefinition = "serial")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_user;
+	private Long id_user;
 
 	@Column(name = "username")
 	private String username;
@@ -26,16 +26,12 @@ public class User {
 
 	@Column(name = "cedula")
 	private Integer cedula;
-	
-	public void setId_user(int i) {
-		this.id_user = i;
-	}
 
-	public Integer getId_user() {
+	public Long getId_user() {
 		return id_user;
 	}
 
-	public void setId_empleado(Integer id_user) {
+	public void setId_user(Long id_user) {
 		this.id_user = id_user;
 	}
 
